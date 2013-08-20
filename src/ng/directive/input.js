@@ -558,7 +558,8 @@ function numberInputType(scope, element, attr, ctrl, $sniffer, $browser) {
 
       attr.$observe(minOrMax, function() {
         // triggering validation
-        ctrl.$setViewValue(ctrl.$viewValue);
+        if (!isNaN(ctrl.$viewValue))
+          ctrl.$setViewValue(ctrl.$viewValue);
       });
     }
   }
